@@ -19,20 +19,22 @@ function SearchFormComponent() {
   const fetchTransactions = useContextSelector(
     TransactionsContext,
     (context) => {
-      return context.fetchTransactions
+      return context.fetchTransactionsPage
     },
   )
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting },
   } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema),
   })
 
   async function handleSearchTransactions(data: SearchFormInputs) {
-    await fetchTransactions(data.query)
+    await fetchTransactions(1, data.query)
+    reset()
   }
 
   return (

@@ -21,7 +21,9 @@ interface CreateTransactionInput {
 
 interface TransactionContextType {
   transactions: Transaction[]
-  fetchTransactions: (query?: string) => Promise<void>
+  transactionsPage: Transaction[]
+  pageCount: number
+  fetchTransactionsPage: (page: number, query?: string) => Promise<void>
   createTransaction: (data: CreateTransactionInput) => Promise<void>
 }
 
@@ -33,15 +35,32 @@ export const TransactionsContext = createContext({} as TransactionContextType)
 
 export function TransactionsProvider({ children }: TransactionProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [transactionsPage, setTransactionsPage] = useState<Transaction[]>([])
+  const [pageCount, setpageCount] = useState(0)
 
-  const fetchTransactions = useCallback(async (query?: string) => {
-    const response = await api.get('transactions', {
-      params: {
-        _sort: 'createdAt',
-        _order: 'desc',
-        q: query,
-      },
-    })
+  const fetchTransactionsPage = useCallback(
+    async (page: number = 1, query?: string) => {
+      const response = await api.get('transactions', {
+        params: {
+          _sort: 'createdAt',
+          _order: 'desc',
+          _page: page,
+          _limit: 5,
+          q: query,
+        },
+      })
+
+      const totalPages = Number(response.headers['x-total-count'])
+
+      setpageCount(Math.ceil(totalPages / 5))
+
+      setTransactionsPage(response.data)
+    },
+    [],
+  )
+
+  const fetchTransactions = useCallback(async () => {
+    const response = await api.get('transactions')
 
     setTransactions(response.data)
   }, [])
@@ -50,7 +69,7 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
     async (data: CreateTransactionInput) => {
       const { description, category, type, value } = data
 
-      const response = await api.post('transactions', {
+      await api.post('transactions', {
         description,
         category,
         type,
@@ -58,18 +77,29 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
         createdAt: new Date(),
       })
 
-      setTransactions((state) => [response.data, ...state])
+      fetchTransactions()
+      fetchTransactionsPage()
     },
-    [],
+    [fetchTransactions, fetchTransactionsPage],
   )
 
   useEffect(() => {
     fetchTransactions()
   }, [fetchTransactions])
 
+  useEffect(() => {
+    fetchTransactionsPage()
+  }, [fetchTransactionsPage])
+
   return (
     <TransactionsContext.Provider
-      value={{ transactions, fetchTransactions, createTransaction }}
+      value={{
+        transactions,
+        transactionsPage,
+        fetchTransactionsPage,
+        pageCount,
+        createTransaction,
+      }}
     >
       {children}
     </TransactionsContext.Provider>
