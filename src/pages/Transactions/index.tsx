@@ -11,7 +11,9 @@ import {
   PriceHighlight,
   TransactionsContainer,
   TransactionsTable,
+  PaginateContainer,
 } from './styles'
+import { CaretLeft, CaretRight } from 'phosphor-react'
 
 export function Transactions() {
   const transactions = useContextSelector(TransactionsContext, (context) => {
@@ -30,6 +32,7 @@ export function Transactions() {
   })
 
   const handlePageClick = async (data: any) => {
+    console.log(data)
     const currentPage = data.selected + 1
 
     await fetchTransactionsPage(currentPage)
@@ -65,24 +68,24 @@ export function Transactions() {
             })}
           </tbody>
         </TransactionsTable>
-        <ReactPaginate
-          previousLabel={'anterior'}
-          nextLabel={'próxima'}
-          breakLabel={'...'}
-          pageCount={pageCount}
-          marginPagesDisplayed={0}
-          onPageChange={handlePageClick}
-          containerClassName={'pagination justify-content-center'}
-          pageClassName={'page-item'}
-          pageLinkClassName={'page-link'}
-          previousClassName={'page-item'}
-          previousLinkClassName={'page-link'}
-          nextClassName={'page-item'}
-          nextLinkClassName={'page-link'}
-          breakClassName={'page-item'}
-          breakLinkClassName={'page-link'}
-          activeClassName={'active'}
-        />
+        <PaginateContainer>
+          <ReactPaginate
+            previousLabel={<CaretLeft size={24} weight="bold" />}
+            nextLabel={<CaretRight size={24} weight="bold" />}
+            breakClassName={'break'}
+            pageCount={pageCount}
+            marginPagesDisplayed={0}
+            onPageChange={handlePageClick}
+            containerClassName={'pagination'}
+            pageClassName={'page-item'}
+            pageLinkClassName={'page-link'}
+            previousClassName={'chevron'}
+            previousLinkClassName={'chevron-link'}
+            nextClassName={'chevron'}
+            nextLinkClassName={'chevron-link'}
+            activeClassName={'active'}
+          />
+        </PaginateContainer>
       </TransactionsContainer>
     </div>
   )

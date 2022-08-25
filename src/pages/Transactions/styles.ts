@@ -37,3 +37,68 @@ export const PriceHighlight = styled.span<PriceHighlightProps>`
       ? props.theme['green-300']
       : props.theme['red-300']};
 `
+
+export const PaginateContainer = styled.div`
+  .pagination {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .page-item.active .page-link {
+    background-color: ${(props) => props.theme['green-700']};
+    color: ${(props) => props.theme['gray-100']};
+  }
+
+  .page-item.active :focus {
+    box-shadow: none;
+  }
+
+  .chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    color: ${(props) => props.theme['green-700']};
+    cursor: pointer;
+  }
+
+  .chevron.disabled {
+    color: ${(props) => props.theme['gray-600']};
+    cursor: not-allowed;
+  }
+
+  .chevron :focus {
+    box-shadow: none;
+  }
+
+  .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    min-width: 2.5rem;
+    border-radius: 6px;
+    color: ${(props) => props.theme['gray-400']};
+    background: ${(props) => props.theme['gray-600']};
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .page-link:hover {
+    color: ${(props) => props.theme['gray-100']};
+    background: ${(props) => props.theme['green-500']};
+  }
+
+  .break {
+    display: none;
+  }
+`
