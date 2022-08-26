@@ -3,8 +3,25 @@ import styled from 'styled-components'
 export const TransactionsContainer = styled.div`
   width: 100%;
   max-width: 70rem;
-  margin: 4rem auto 0;
+  margin: 2rem auto 0;
   padding: 0 1.5rem;
+`
+
+export const FilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 3rem auto 1rem;
+  min-height: 2.2rem;
+  gap: 0.5rem;
+
+  span {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: ${(props) => props.theme['green-700']};
+    color: ${(props) => props.theme['gray-100']};
+  }
 `
 
 export const TransactionsTable = styled.table`

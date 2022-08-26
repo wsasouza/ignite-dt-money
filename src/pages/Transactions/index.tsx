@@ -13,8 +13,9 @@ import {
   TransactionsContainer,
   TransactionsTable,
   PaginateContainer,
+  FilterContainer,
 } from './styles'
-import { CaretLeft, CaretRight } from 'phosphor-react'
+import { CaretLeft, CaretRight, Funnel } from 'phosphor-react'
 
 export function Transactions() {
   const [query, setQuery] = useState('')
@@ -35,12 +36,9 @@ export function Transactions() {
   })
 
   const handlePageClick = async (data: any) => {
-    console.log(query)
     const currentPage = data.selected + 1
 
     await fetchTransactionsPage(currentPage, query)
-
-    window.scrollTo(0, 0)
   }
 
   return (
@@ -49,6 +47,16 @@ export function Transactions() {
       <Summary />
 
       <TransactionsContainer>
+        {query ? (
+          <FilterContainer>
+            <Funnel size={32} weight="fill" color="#7C7C8A" />
+            <span>{query}</span>
+          </FilterContainer>
+        ) : (
+          <FilterContainer>
+            <Funnel size={32} color="#7C7C8A" />
+          </FilterContainer>
+        )}
         <SearchForm query={query} setQuery={setQuery} />
         <TransactionsTable>
           <tbody>
