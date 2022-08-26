@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useContextSelector } from 'use-context-selector'
 import ReactPaginate from 'react-paginate'
 
@@ -16,6 +17,8 @@ import {
 import { CaretLeft, CaretRight } from 'phosphor-react'
 
 export function Transactions() {
+  const [query, setQuery] = useState('')
+
   const transactions = useContextSelector(TransactionsContext, (context) => {
     return context.transactionsPage
   })
@@ -32,10 +35,10 @@ export function Transactions() {
   })
 
   const handlePageClick = async (data: any) => {
-    console.log(data)
+    console.log(query)
     const currentPage = data.selected + 1
 
-    await fetchTransactionsPage(currentPage)
+    await fetchTransactionsPage(currentPage, query)
 
     window.scrollTo(0, 0)
   }
@@ -46,7 +49,7 @@ export function Transactions() {
       <Summary />
 
       <TransactionsContainer>
-        <SearchForm />
+        <SearchForm query={query} setQuery={setQuery} />
         <TransactionsTable>
           <tbody>
             {transactions.map((transaction) => {
