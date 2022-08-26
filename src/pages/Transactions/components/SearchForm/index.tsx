@@ -37,8 +37,9 @@ export function SearchForm({ query, setQuery }: SearchFormComponentProps) {
   })
 
   async function handleSearchTransactions(data: SearchFormInputs) {
+    const page = 1
     setQuery(data.query)
-    await fetchTransactions(1, data.query)
+    await fetchTransactions(page, data.query)
     reset()
   }
 

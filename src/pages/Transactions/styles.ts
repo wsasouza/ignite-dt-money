@@ -79,6 +79,11 @@ export const PaginateContainer = styled.div`
     box-shadow: none;
   }
 
+  .chevron:not(.disabled):hover {
+    color: ${(props) => props.theme['green-500']};
+    transition: color 0.5s;
+  }
+
   .page-link {
     display: flex;
     align-items: center;
@@ -96,6 +101,7 @@ export const PaginateContainer = styled.div`
   .page-link:hover {
     color: ${(props) => props.theme['gray-100']};
     background: ${(props) => props.theme['green-500']};
+    transition: 0.5s;
   }
 
   .break {
