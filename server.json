@@ -223,6 +223,30 @@
       "value": 32,
       "createdAt": "2022-08-26T03:04:30.521Z",
       "id": 28
+    },
+    {
+      "description": "Supermercado",
+      "category": "Alimentação",
+      "type": "outcome",
+      "value": 197,
+      "createdAt": "2022-08-27T20:08:26.032Z",
+      "id": 29
+    },
+    {
+      "description": "Compra Moto",
+      "category": "Compra",
+      "type": "outcome",
+      "value": 18000,
+      "createdAt": "2022-08-27T20:13:53.027Z",
+      "id": 30
+    },
+    {
+      "description": "Venda Sistema Web",
+      "category": "Venda ",
+      "type": "income",
+      "value": 5989,
+      "createdAt": "2022-08-27T20:15:49.918Z",
+      "id": 31
     }
   ]
 }
