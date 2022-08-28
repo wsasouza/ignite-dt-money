@@ -15,11 +15,11 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 interface SearchFormComponentProps {
-  query: string
   setQuery: (state: string) => void
+  setPage: (state: number) => void
 }
 
-export function SearchForm({ query, setQuery }: SearchFormComponentProps) {
+export function SearchForm({ setQuery, setPage }: SearchFormComponentProps) {
   const fetchTransactions = useContextSelector(
     TransactionsContext,
     (context) => {
@@ -39,6 +39,7 @@ export function SearchForm({ query, setQuery }: SearchFormComponentProps) {
   async function handleSearchTransactions(data: SearchFormInputs) {
     const page = 1
     setQuery(data.query)
+    setPage(Math.random())
     await fetchTransactions(page, data.query)
     reset()
   }
