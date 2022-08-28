@@ -52,4 +52,12 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     css`
       background: ${props.theme['red-700']};
     `};
+
+  ${(props) =>
+    props.variant &&
+    css`
+      p {
+        color: ${(props) => props.theme['gray-300']};
+      }
+    `};
 `
