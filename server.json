@@ -247,6 +247,22 @@
       "value": 5989,
       "createdAt": "2022-08-27T20:15:49.918Z",
       "id": 31
+    },
+    {
+      "description": "Tratamento com a agulha ",
+      "category": "Alimentação",
+      "type": "outcome",
+      "value": 740,
+      "createdAt": "2022-08-28T15:42:08.908Z",
+      "id": 32
+    },
+    {
+      "description": "Ganhos com adsense",
+      "category": "Venda",
+      "type": "income",
+      "value": 1200,
+      "createdAt": "2022-08-28T21:39:09.274Z",
+      "id": 33
     }
   ]
 }

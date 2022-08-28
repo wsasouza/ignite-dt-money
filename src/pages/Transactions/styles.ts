@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const TransactionsContainer = styled.div`
   width: 100%;
@@ -7,21 +7,36 @@ export const TransactionsContainer = styled.div`
   padding: 0 1.5rem;
 `
 
-export const FilterContainer = styled.div`
+export const InfoContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin: 3rem auto 1rem;
-  min-height: 2.2rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  > span {
+    color: ${(props) => props.theme['gray-500']};
+  }
+`
+interface FilterContainerProps {
+  variant?: string
+}
+
+export const FilterContainer = styled.div<FilterContainerProps>`
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 
-  span {
-    font-size: 1rem;
-    padding: 8px 16px;
-    border-radius: 6px;
-    background: ${(props) => props.theme['green-700']};
-    color: ${(props) => props.theme['gray-100']};
-  }
+  ${(props) =>
+    props.variant &&
+    css`
+      span {
+        font-size: 0.875rem;
+        padding: 8px 16px;
+        border-radius: 6px;
+        background: ${(props) => props.theme['green-700']};
+        color: ${(props) => props.theme['gray-100']};
+      }
+    `};
 `
 
 export const TransactionsTable = styled.table`
@@ -31,6 +46,7 @@ export const TransactionsTable = styled.table`
   margin-top: 1.5rem;
 
   td {
+    align-items: center;
     padding: 1.25rem 2rem;
     background: ${(props) => props.theme['gray-700']};
 

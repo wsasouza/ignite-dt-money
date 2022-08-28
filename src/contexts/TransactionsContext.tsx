@@ -20,6 +20,7 @@ interface CreateTransactionInput {
 }
 
 interface TransactionContextType {
+  quantityTransactions: number
   transactions: Transaction[]
   transactionsPage: Transaction[]
   pageCount: number
@@ -37,6 +38,8 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [transactionsPage, setTransactionsPage] = useState<Transaction[]>([])
   const [pageCount, setpageCount] = useState(0)
+
+  const quantityTransactions = transactions.length
 
   const fetchTransactionsPage = useCallback(
     async (page: number = 1, query?: string) => {
@@ -94,6 +97,7 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
   return (
     <TransactionsContext.Provider
       value={{
+        quantityTransactions,
         transactions,
         transactionsPage,
         fetchTransactionsPage,

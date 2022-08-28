@@ -13,9 +13,10 @@ import {
   TransactionsContainer,
   TransactionsTable,
   PaginateContainer,
+  InfoContainer,
   FilterContainer,
 } from './styles'
-import { CaretLeft, CaretRight, Funnel } from 'phosphor-react'
+import { CalendarBlank, CaretLeft, CaretRight, Funnel } from 'phosphor-react'
 
 interface PageClickProps {
   selected: number
@@ -25,9 +26,12 @@ export function Transactions() {
   const [query, setQuery] = useState('')
   const [remountComponent, setRemountComponent] = useState(0)
 
-  const transactions = useContextSelector(TransactionsContext, (context) => {
-    return context.transactionsPage
-  })
+  const transactionsPerPage = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.transactionsPage
+    },
+  )
 
   const fetchTransactionsPage = useContextSelector(
     TransactionsContext,
@@ -39,6 +43,13 @@ export function Transactions() {
   const pageCount = useContextSelector(TransactionsContext, (context) => {
     return context.pageCount
   })
+
+  const quantityTransactions = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.quantityTransactions
+    },
+  )
 
   const handlePageClick = async ({ selected }: PageClickProps) => {
     const currentPage = selected + 1
@@ -53,23 +64,26 @@ export function Transactions() {
 
       <div key={remountComponent}>
         <TransactionsContainer>
-          {query ? (
-            <FilterContainer>
-              <Funnel size={32} weight="fill" color="#7C7C8A" />
+          <InfoContainer>
+            <FilterContainer variant={query}>
+              {query ? (
+                <Funnel size={32} weight="fill" color="#7C7C8A" />
+              ) : (
+                <Funnel size={32} color="#7C7C8A" />
+              )}
               <span>{query}</span>
             </FilterContainer>
-          ) : (
-            <FilterContainer>
-              <Funnel size={32} color="#7C7C8A" />
-            </FilterContainer>
-          )}
+
+            <span>{`Transações: ${quantityTransactions} itens`}</span>
+          </InfoContainer>
+
           <SearchForm setQuery={setQuery} setPage={setRemountComponent} />
           <TransactionsTable>
             <tbody>
-              {transactions.map((transaction) => {
+              {transactionsPerPage.map((transaction) => {
                 return (
                   <tr key={transaction.id}>
-                    <td width="50%">{transaction.description}</td>
+                    <td width="45%">{transaction.description}</td>
                     <td>
                       <PriceHighlight variant={transaction.type}>
                         {transaction.type === 'outcome' && '- '}
@@ -78,6 +92,7 @@ export function Transactions() {
                     </td>
                     <td>{transaction.category}</td>
                     <td>
+                      <CalendarBlank size={16} color="#7C7C8A" />
                       {dateFormatter.format(new Date(transaction.createdAt))}
                     </td>
                   </tr>
