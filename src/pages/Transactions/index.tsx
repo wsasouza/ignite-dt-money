@@ -51,6 +51,14 @@ export function Transactions() {
     },
   )
 
+  const quantityTransactionsDisplay = (quantityTransactions: number) => {
+    if (quantityTransactions === 0) return 'Não há transações'
+    else if (quantityTransactions === 1) {
+      return `Transações: ${`${quantityTransactions}`.padStart(2, '0')} item`
+    } else
+      return `Transações: ${`${quantityTransactions}`.padStart(2, '0')} itens`
+  }
+
   const handlePageClick = async ({ selected }: PageClickProps) => {
     const currentPage = selected + 1
 
@@ -74,7 +82,7 @@ export function Transactions() {
               <span>{query}</span>
             </FilterContainer>
 
-            <span>{`Transações: ${quantityTransactions} itens`}</span>
+            <span>{quantityTransactionsDisplay(quantityTransactions)}</span>
           </InfoContainer>
 
           <SearchForm setQuery={setQuery} setPage={setRemountComponent} />
