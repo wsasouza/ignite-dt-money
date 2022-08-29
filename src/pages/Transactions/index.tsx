@@ -16,7 +16,13 @@ import {
   InfoContainer,
   FilterContainer,
 } from './styles'
-import { CalendarBlank, CaretLeft, CaretRight, Funnel } from 'phosphor-react'
+import {
+  CalendarBlank,
+  CaretLeft,
+  CaretRight,
+  Funnel,
+  Trash,
+} from 'phosphor-react'
 
 interface PageClickProps {
   selected: number
@@ -51,6 +57,13 @@ export function Transactions() {
     },
   )
 
+  const deleteTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.deleteTransaction
+    },
+  )
+
   const quantityTransactionsDisplay = (quantityTransactions: number) => {
     if (quantityTransactions === 0) return 'Não há transações'
     else if (quantityTransactions === 1) {
@@ -63,6 +76,12 @@ export function Transactions() {
     const currentPage = selected + 1
 
     await fetchTransactionsPage(currentPage, query)
+  }
+
+  const handleDeleteTransaction = async (id: number) => {
+    await deleteTransaction(id)
+
+    setRemountComponent(Math.random())
   }
 
   return (
@@ -91,7 +110,7 @@ export function Transactions() {
               {transactionsPerPage.map((transaction) => {
                 return (
                   <tr key={transaction.id}>
-                    <td width="45%">{transaction.description}</td>
+                    <td width="40%">{transaction.description}</td>
                     <td>
                       <PriceHighlight variant={transaction.type}>
                         {transaction.type === 'outcome' && '- '}
@@ -102,6 +121,13 @@ export function Transactions() {
                     <td>
                       <CalendarBlank size={16} color="#7C7C8A" />
                       {dateFormatter.format(new Date(transaction.createdAt))}
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleDeleteTransaction(transaction.id)}
+                      >
+                        <Trash size={16} color="#7C7C8A" />
+                      </button>
                     </td>
                   </tr>
                 )
