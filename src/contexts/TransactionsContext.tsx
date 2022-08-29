@@ -38,8 +38,7 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [transactionsPage, setTransactionsPage] = useState<Transaction[]>([])
   const [pageCount, setpageCount] = useState(0)
-
-  const quantityTransactions = transactions.length
+  const [quantityTransactions, setQuantityTransactions] = useState(0)
 
   const fetchTransactionsPage = useCallback(
     async (page: number = 1, query?: string) => {
@@ -53,9 +52,11 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
         },
       })
 
-      const totalPages = Number(response.headers['x-total-count'])
+      const totalItens = Number(response.headers['x-total-count'])
 
-      setpageCount(Math.ceil(totalPages / 5))
+      setQuantityTransactions(totalItens)
+
+      setpageCount(Math.ceil(totalItens / 5))
 
       setTransactionsPage(response.data)
     },
