@@ -106,6 +106,7 @@ export function Transactions() {
           </InfoContainer>
 
           <SearchForm setQuery={setQuery} setPage={setRemountComponent} />
+
           <TransactionsTable>
             {transactionsPerPage.map((transaction) => {
               return (

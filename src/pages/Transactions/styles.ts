@@ -44,15 +44,9 @@ export const FilterContainer = styled.div<FilterContainerProps>`
 export const TransactionsTable = styled.div`
   width: 100%;
   margin-top: 1.5rem;
-`
-interface PriceHighlightProps {
-  variant: 'income' | 'outcome'
-}
-export const PriceHighlight = styled.span<PriceHighlightProps>`
-  color: ${(props) =>
-    props.variant === 'income'
-      ? props.theme['green-300']
-      : props.theme['red-300']};
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `
 
 export const PaginateContainer = styled.div`

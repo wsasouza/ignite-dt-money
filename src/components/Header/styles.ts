@@ -31,7 +31,8 @@ export const NewTransactionButton = styled.button`
   }
 
   @media (max-width: 440px) {
-    font-size: 0.75rem;
+    font-size: 1rem;
     height: 2.5rem;
+    padding: 0 1rem;
   }
 `

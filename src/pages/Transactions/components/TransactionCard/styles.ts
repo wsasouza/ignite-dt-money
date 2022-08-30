@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 export const TransactionCardContainer = styled.div`
-  width: 100%;
+  min-width: 100%;
   display: grid;
   grid-template-columns: 48% 15% 16% 16% 5%;
   grid-template-areas: 'description value category date delete';
   padding: 1.125rem 2rem;
   border-radius: 6px;
-  margin: 0.5rem;
   background: ${(props) => props.theme['gray-700']};
 
   .description {
