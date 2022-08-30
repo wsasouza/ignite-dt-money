@@ -1,14 +1,6 @@
 {
   "transactions": [
     {
-      "description": "Conta energia ",
-      "category": "Infra ",
-      "type": "outcome",
-      "value": 45,
-      "createdAt": "2022-08-29T20:20:16.300Z",
-      "id": 27
-    },
-    {
       "description": "Mouse novo",
       "category": "Infra ",
       "type": "outcome",
@@ -33,12 +25,20 @@
       "id": 30
     },
     {
-      "description": "Google Storage ",
-      "category": "Infra ",
+      "description": "Conta energia ",
+      "category": "Infra",
       "type": "outcome",
-      "value": 59,
-      "createdAt": "2022-08-29T20:25:31.155Z",
+      "value": 145,
+      "createdAt": "2022-08-29T23:43:30.109Z",
       "id": 31
+    },
+    {
+      "description": "Supermercado",
+      "category": "Alimentação",
+      "type": "outcome",
+      "value": 480,
+      "createdAt": "2022-08-30T00:19:23.384Z",
+      "id": 32
     }
   ]
 }

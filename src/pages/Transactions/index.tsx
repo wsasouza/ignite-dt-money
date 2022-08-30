@@ -5,11 +5,11 @@ import ReactPaginate from 'react-paginate'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
-import { dateFormatter, priceFormatter } from '../../utils/formatter'
+// import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { SearchForm } from './components/SearchForm'
 
 import {
-  PriceHighlight,
+  // PriceHighlight,
   TransactionsContainer,
   TransactionsTable,
   PaginateContainer,
@@ -17,12 +17,13 @@ import {
   FilterContainer,
 } from './styles'
 import {
-  CalendarBlank,
+  // CalendarBlank,
   CaretLeft,
   CaretRight,
   Funnel,
-  Trash,
+  // Trash,
 } from 'phosphor-react'
+import { TransactionCard } from './components/TransactionCard'
 
 interface PageClickProps {
   selected: number
@@ -106,33 +107,20 @@ export function Transactions() {
 
           <SearchForm setQuery={setQuery} setPage={setRemountComponent} />
           <TransactionsTable>
-            <tbody>
-              {transactionsPerPage.map((transaction) => {
-                return (
-                  <tr key={transaction.id}>
-                    <td width="40%">{transaction.description}</td>
-                    <td>
-                      <PriceHighlight variant={transaction.type}>
-                        {transaction.type === 'outcome' && '- '}
-                        {priceFormatter.format(transaction.value)}
-                      </PriceHighlight>
-                    </td>
-                    <td>{transaction.category}</td>
-                    <td>
-                      <CalendarBlank size={16} color="#7C7C8A" />
-                      {dateFormatter.format(new Date(transaction.createdAt))}
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => handleDeleteTransaction(transaction.id)}
-                      >
-                        <Trash size={16} color="#7C7C8A" />
-                      </button>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
+            {transactionsPerPage.map((transaction) => {
+              return (
+                <TransactionCard
+                  key={transaction.id}
+                  description={transaction.description}
+                  value={transaction.value}
+                  type={transaction.type}
+                  category={transaction.category}
+                  createdAt={transaction.createdAt}
+                  id={transaction.id}
+                  onDeleteCard={handleDeleteTransaction}
+                />
+              )
+            })}
           </TransactionsTable>
           <PaginateContainer>
             <ReactPaginate
