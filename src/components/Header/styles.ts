@@ -29,4 +29,9 @@ export const NewTransactionButton = styled.button`
     background: ${(props) => props.theme['green-700']};
     transition: background 0.5s;
   }
+
+  @media (max-width: 440px) {
+    font-size: 0.75rem;
+    height: 2.5rem;
+  }
 `

@@ -1,5 +1,7 @@
 import { CalendarBlank, TagSimple, Trash } from 'phosphor-react'
+import { categories } from '../../../../utils/categories'
 import { dateFormatter, priceFormatter } from '../../../../utils/formatter'
+
 import { PriceHighlight, TransactionCardContainer } from './styles'
 
 interface TransactionCardProps {
@@ -13,6 +15,10 @@ interface TransactionCardProps {
 }
 
 export function TransactionCard(transaction: TransactionCardProps) {
+  const category = categories.find(
+    (category) => category.name === transaction.category,
+  )
+
   return (
     <TransactionCardContainer>
       <span className="description">{transaction.description}</span>
@@ -23,7 +29,7 @@ export function TransactionCard(transaction: TransactionCardProps) {
       </PriceHighlight>
 
       <div className="category">
-        <TagSimple size={16} weight="fill" />
+        <TagSimple size={16} weight="fill" color={category?.color} />
         <span>{transaction.category}</span>
       </div>
       <div className="date">

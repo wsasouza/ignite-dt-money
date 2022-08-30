@@ -1,44 +1,44 @@
 {
   "transactions": [
     {
-      "description": "Mouse novo",
-      "category": "Infra ",
-      "type": "outcome",
-      "value": 55,
-      "createdAt": "2022-08-29T20:21:42.939Z",
-      "id": 28
-    },
-    {
-      "description": "Venda Cafeteira ",
-      "category": "venda ",
+      "description": "Salário ",
+      "category": "Rendimentos",
       "type": "income",
-      "value": 200,
-      "createdAt": "2022-08-29T20:23:59.593Z",
-      "id": 29
+      "value": 5900,
+      "createdAt": "2022-08-30T01:27:37.779Z",
+      "id": 2
     },
     {
-      "description": "Venda Site ",
-      "category": "venda ",
-      "type": "income",
-      "value": 2000,
-      "createdAt": "2022-08-29T20:24:36.440Z",
-      "id": 30
-    },
-    {
-      "description": "Conta energia ",
-      "category": "Infra",
-      "type": "outcome",
-      "value": 145,
-      "createdAt": "2022-08-29T23:43:30.109Z",
-      "id": 31
-    },
-    {
-      "description": "Supermercado",
+      "description": "Jantar Churracaria",
       "category": "Alimentação",
       "type": "outcome",
-      "value": 480,
-      "createdAt": "2022-08-30T00:19:23.384Z",
-      "id": 32
+      "value": 139,
+      "createdAt": "2022-08-30T01:55:04.000Z",
+      "id": 6
+    },
+    {
+      "description": "Conta Internet",
+      "category": "Casa",
+      "type": "outcome",
+      "value": 136,
+      "createdAt": "2022-08-30T01:55:57.726Z",
+      "id": 7
+    },
+    {
+      "description": "Churrasqueira ",
+      "category": "Compras",
+      "type": "outcome",
+      "value": 179,
+      "createdAt": "2022-08-30T01:58:08.032Z",
+      "id": 9
+    },
+    {
+      "description": "Revisão do Civic ",
+      "category": "Carro",
+      "type": "outcome",
+      "value": 450,
+      "createdAt": "2022-08-30T01:58:35.984Z",
+      "id": 10
     }
   ]
 }

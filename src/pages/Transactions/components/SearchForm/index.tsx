@@ -53,7 +53,7 @@ export function SearchForm({ setQuery, setPage }: SearchFormComponentProps) {
       />
       <button disabled={isSubmitting}>
         <MagnifyingGlass size={20} />
-        Buscar
+        <span>Buscar</span>
       </button>
     </SearchFormContainer>
   )

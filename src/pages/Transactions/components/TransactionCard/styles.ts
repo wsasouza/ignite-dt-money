@@ -55,6 +55,34 @@ export const TransactionCardContainer = styled.div`
       transition: color 0.5s;
     }
   }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 1.5rem 1.5rem auto;
+    grid-template-areas:
+      'description description description delete'
+      'value value value value'
+      'category category date date';
+    padding: 1.5rem;
+
+    .delete {
+      text-align: right;
+    }
+
+    .value {
+      margin-top: 1.5rem;
+      font-size: 1.25rem;
+    }
+
+    .category {
+      margin-top: 1.5rem;
+    }
+
+    .date {
+      margin-top: 1.5rem;
+      justify-content: flex-end;
+    }
+  }
 `
 
 interface PriceHighlightProps {

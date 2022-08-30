@@ -9,9 +9,11 @@ export const TransactionsContainer = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+  gap: 1rem;
 
   > span {
     color: ${(props) => props.theme['gray-500']};
@@ -56,6 +58,7 @@ export const PriceHighlight = styled.span<PriceHighlightProps>`
 export const PaginateContainer = styled.div`
   .pagination {
     margin-top: 1.5rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
