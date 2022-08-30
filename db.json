@@ -39,6 +39,14 @@
       "value": 450,
       "createdAt": "2022-08-30T01:58:35.984Z",
       "id": 10
+    },
+    {
+      "description": "Borracha do Parabrisa ",
+      "category": "Carro",
+      "type": "outcome",
+      "value": 195,
+      "createdAt": "2022-08-30T13:59:21.225Z",
+      "id": 11
     }
   ]
 }
