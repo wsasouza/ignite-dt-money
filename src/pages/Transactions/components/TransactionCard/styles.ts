@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const TransactionCardContainer = styled.div`
+interface TransactionContainerCardProps {
+  color?: string
+}
+
+export const TransactionCardContainer = styled.div<TransactionContainerCardProps>`
   min-width: 100%;
   display: grid;
   grid-template-columns: 48% 15% 16% 16% 5%;
@@ -8,6 +12,7 @@ export const TransactionCardContainer = styled.div`
   padding: 1.125rem 2rem;
   border-radius: 6px;
   background: ${(props) => props.theme['gray-700']};
+  border-left: 5px solid ${({ color }) => color};
 
   .description {
     grid-area: description;
@@ -26,6 +31,10 @@ export const TransactionCardContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 6px;
+
+    svg {
+      color: ${({ color }) => color};
+    }
   }
 
   .date {

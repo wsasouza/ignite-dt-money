@@ -20,7 +20,7 @@ export function TransactionCard(transaction: TransactionCardProps) {
   )
 
   return (
-    <TransactionCardContainer>
+    <TransactionCardContainer color={category?.color}>
       <span className="description">{transaction.description}</span>
 
       <PriceHighlight variant={transaction.type} className="value">
@@ -29,7 +29,7 @@ export function TransactionCard(transaction: TransactionCardProps) {
       </PriceHighlight>
 
       <div className="category">
-        <TagSimple size={16} weight="fill" color={category?.color} />
+        <TagSimple size={16} weight="fill" />
         <span>{category?.name}</span>
       </div>
       <div className="date">
