@@ -11,14 +11,16 @@ import {
   CloseButton,
   Content,
   Overlay,
+  SelectCategory,
   TransactionType,
   TransactionTypeButton,
 } from './styles'
+import { categories } from '../../utils/categories'
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
   value: z.number(),
-  category: z.string(),
+  category: z.string().min(3),
   type: z.enum(['income', 'outcome']),
 })
 
@@ -65,7 +67,7 @@ export function NewTransactionModal({ setOpen }: NewTransactionModalProps) {
       <Overlay />
       <Content>
         <Dialog.Title>Nova transação</Dialog.Title>
-        <CloseButton asChild>
+        <CloseButton asChild onClick={() => reset()}>
           <X size={24} />
         </CloseButton>
 
@@ -78,15 +80,9 @@ export function NewTransactionModal({ setOpen }: NewTransactionModalProps) {
           />
           <input
             type="number"
-            placeholder="Preço"
+            placeholder="Valor"
             required
             {...register('value', { valueAsNumber: true })}
-          />
-          <input
-            type="text"
-            placeholder="Categoria"
-            required
-            {...register('category')}
           />
 
           <Controller
@@ -111,6 +107,19 @@ export function NewTransactionModal({ setOpen }: NewTransactionModalProps) {
               )
             }}
           />
+
+          <SelectCategory {...register('category')}>
+            <option value="no" hidden>
+              Selecione a categoria
+            </option>
+            {categories.map((category) => {
+              return (
+                <option key={category.key} value={category.key}>
+                  {category.name}
+                </option>
+              )
+            })}
+          </SelectCategory>
 
           <button type="submit" disabled={isSubmitting}>
             Cadastrar

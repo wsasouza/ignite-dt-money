@@ -16,7 +16,7 @@ interface TransactionCardProps {
 
 export function TransactionCard(transaction: TransactionCardProps) {
   const category = categories.find(
-    (category) => category.name === transaction.category,
+    (category) => category.key === transaction.category,
   )
 
   return (
@@ -30,7 +30,7 @@ export function TransactionCard(transaction: TransactionCardProps) {
 
       <div className="category">
         <TagSimple size={16} weight="fill" color={category?.color} />
-        <span>{transaction.category}</span>
+        <span>{category?.name}</span>
       </div>
       <div className="date">
         <CalendarBlank size={16} color="#7C7C8A" />

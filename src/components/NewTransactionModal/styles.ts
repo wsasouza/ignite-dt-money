@@ -39,6 +39,11 @@ export const Content = styled(Dialog.Content)`
       &::placeholder {
         color: ${(props) => props.theme['gray-500']};
       }
+
+      &:error :focus {
+        outline: 0;
+        box-shadow: 0 0 0 2px ${(props) => props.theme['red-500']};
+      }
     }
 
     button[type='submit'] {
@@ -129,4 +134,15 @@ export const TransactionTypeButton = styled(
       color: ${(props) => props.theme.white};
     }
   }
+`
+
+export const SelectCategory = styled.select`
+  margin-top: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 0;
+  background: ${(props) => props.theme['gray-900']};
+  color: ${(props) => props.theme['gray-300']};
+  padding: 1rem;
+  cursor: pointer;
 `

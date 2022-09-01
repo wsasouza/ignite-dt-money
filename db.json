@@ -1,52 +1,52 @@
 {
   "transactions": [
     {
-      "description": "Salário ",
-      "category": "Rendimentos",
+      "description": "Salário",
+      "category": "rendimentos",
       "type": "income",
       "value": 5900,
-      "createdAt": "2022-08-30T01:27:37.779Z",
-      "id": 2
+      "createdAt": "2022-08-31T15:46:20.328Z",
+      "id": 1
     },
     {
-      "description": "Jantar Churracaria",
-      "category": "Alimentação",
+      "description": "Conta de energia",
+      "category": "casa",
       "type": "outcome",
-      "value": 139,
-      "createdAt": "2022-08-30T01:55:04.000Z",
+      "value": 145,
+      "createdAt": "2022-08-31T19:04:23.148Z",
+      "id": 4
+    },
+    {
+      "description": "Manutenção Civic ",
+      "category": "carro",
+      "type": "outcome",
+      "value": 480,
+      "createdAt": "2022-09-01T01:02:08.885Z",
       "id": 6
     },
     {
-      "description": "Conta Internet",
-      "category": "Casa",
+      "description": "Compras Savegnago ",
+      "category": "supermercado",
       "type": "outcome",
-      "value": 136,
-      "createdAt": "2022-08-30T01:55:57.726Z",
+      "value": 350,
+      "createdAt": "2022-09-01T01:02:43.663Z",
       "id": 7
     },
     {
-      "description": "Churrasqueira ",
-      "category": "Compras",
+      "description": "Compra curso AWS",
+      "category": "estudo",
       "type": "outcome",
-      "value": 179,
-      "createdAt": "2022-08-30T01:58:08.032Z",
+      "value": 2499,
+      "createdAt": "2022-09-01T01:03:27.199Z",
+      "id": 8
+    },
+    {
+      "description": "Viagem Barretos ",
+      "category": "lazer",
+      "type": "outcome",
+      "value": 390,
+      "createdAt": "2022-09-01T01:04:04.349Z",
       "id": 9
-    },
-    {
-      "description": "Revisão do Civic ",
-      "category": "Carro",
-      "type": "outcome",
-      "value": 450,
-      "createdAt": "2022-08-30T01:58:35.984Z",
-      "id": 10
-    },
-    {
-      "description": "Borracha do Parabrisa ",
-      "category": "Carro",
-      "type": "outcome",
-      "value": 195,
-      "createdAt": "2022-08-30T13:59:21.225Z",
-      "id": 11
     }
   ]
 }
