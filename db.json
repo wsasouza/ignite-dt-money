@@ -49,20 +49,20 @@
       "id": 9
     },
     {
-      "description": "Teste Mask",
-      "category": "rendimentos",
-      "type": "income",
-      "value": 45,
-      "createdAt": "2022-09-01T02:50:34.526Z",
-      "id": 10
+      "description": "Pagamento cartão",
+      "category": "compras",
+      "type": "outcome",
+      "value": 1450.45,
+      "createdAt": "2022-09-01T02:52:52.198Z",
+      "id": 12
     },
     {
-      "description": "Agora sim Yupiiiii",
+      "description": "Venda Peça Avulsa",
       "category": "rendimentos",
       "type": "income",
-      "value": 7800,
-      "createdAt": "2022-09-01T02:51:08.167Z",
-      "id": 11
+      "value": 65.9,
+      "createdAt": "2022-09-01T02:55:44.645Z",
+      "id": 14
     }
   ]
 }

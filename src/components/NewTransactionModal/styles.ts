@@ -78,12 +78,16 @@ export const Content = styled(Dialog.Content)`
 export const CloseButton = styled(Dialog.Close)`
   position: absolute;
   background: transparent;
-  border: 0;
+  border-radius: 50%;
   top: 1.5rem;
   right: 1.5rem;
   line-height: 0;
   cursor: pointer;
   color: ${(props) => props.theme['gray-500']};
+
+  &:hover {
+    color: ${(props) => props.theme['gray-300']};
+  }
 `
 
 export const TransactionType = styled(Radio.Root)`
