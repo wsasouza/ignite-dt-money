@@ -47,6 +47,22 @@
       "value": 390,
       "createdAt": "2022-09-01T01:04:04.349Z",
       "id": 9
+    },
+    {
+      "description": "Teste Mask",
+      "category": "rendimentos",
+      "type": "income",
+      "value": 45,
+      "createdAt": "2022-09-01T02:50:34.526Z",
+      "id": 10
+    },
+    {
+      "description": "Agora sim Yupiiiii",
+      "category": "rendimentos",
+      "type": "income",
+      "value": 7800,
+      "createdAt": "2022-09-01T02:51:08.167Z",
+      "id": 11
     }
   ]
 }
